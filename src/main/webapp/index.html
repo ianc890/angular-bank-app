@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Banking Application</title>
+    
+    <!--<style>
+table, th, td {
+    border: 1px solid black;
+    padding: 25px;
+    width:20%;
+     float:center;
+}
+table {
+    border-spacing: 15px;
+}
+</style>-->
 </head>
 <body>
     <nav class="navbar navbar-inverse">
@@ -38,7 +50,7 @@
     	</ul>
     	<h3><span>Table example</span></h3>
     	<table>
-    		<tr>
+    		<tr ng-style="myStyle">
     			<th>first</th>
     			<th>second</th>
     			<th>number</th>
@@ -49,8 +61,33 @@
     			<td>{{account.accountNumber}}</td>
     		</tr>
     	</table>
-    </div>
+    	
+       </div>
     -->
+    
+    <div class = "container" ng-hide="isHidden" ng-init ="accounts=[{'firstName': 'John', 'secondName': 'Doe','accountNumber': '1234'},{'firstName': 'Jane','secondName': 'Doe','accountNumber': '1235'},{'firstName': 'John','secondName': 'Taylor','accountNumber': '1236'},{'firstName': 'Jane','secondName': 'Taylor','accountNumber': '1238'},{'firstName': 'John','secondName': 'Murphy','accountNumber': '1239'},{'firstName': 'Jane','secondName': 'Murphy','accountNumber': '12310'},{'firstName': 'John','secondName': 'Tyrell','accountNumber': '12311'},{'firstName': 'Jane','secondName': 'Tyrell','accountNumber': '12312'}]">
+    	<h3><span>Account Table</span></h3>
+    	<table class = "table table-striped">
+    		<tr ng-style="myStyle">
+    			<th>first</th>
+    			<th>second</th>
+    			<th>number</th>
+    		</tr>
+    		<tr ng-repeat="account in accounts">
+    			<td>{{account.firstName |  lowercase}}</td>
+    			<td>{{account.secondName | uppercase}}</td>
+    			<td>{{account.accountNumber}}</td>
+    		</tr>
+    	</table>
+    </div>
+    
+    <div class = "container">
+    	</br>
+    	Hide table: <input type="checkbox" ng-model="isHidden"/>
+    	<br/>
+    	<button ng-click="myStyle={'background-color':'blue'}">Change color</button>
+    </div>
+      
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
