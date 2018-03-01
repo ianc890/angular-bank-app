@@ -1,0 +1,19 @@
+ <div class="panel-body" ng-controller = "detailController as detailCtrl">
+   		<div>
+        	<h3><span>Details Table</span></h3>
+        	<table  class="table">
+        		<tr>
+        			<th>{{'transaction_id' | uppercase}}</th>
+        			<th>{{'transaction_name' | uppercase}}</th>
+        			<th>{{'transaction_number' | uppercase}}</th>
+        			<th>{{'account_number' | uppercase}}</th>
+        		</tr>
+        		<tr >
+        			<td>{{detailCtrl.transactions[detailCtrl.transactionId-1].id}}</td>
+        			<td>{{detailCtrl.transactions[detailCtrl.transactionId-1].transactionName}}</td>
+        			<td>{{detailCtrl.transactions[detailCtrl.transactionId-1].transactionNumber}}</td>
+        			<td>{{detailCtrl.transactions[detailCtrl.transactionId-1].accountNumber}}</td>
+        		</tr>
+        	</table>
+        </div>
+	</div>
