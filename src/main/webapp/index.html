@@ -1,17 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" ng-app = "accountApp">
+<html lang="en" ng-app="accountApp">
 <head>
     <meta charset="UTF-8">
     <title>Banking Application</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">Banking Application</a>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-default">
+	    <div class="container-fluid">
+	        <div class="navbar-header">
+	            <a class="navbar-brand" href="#">AccountApp</a>
+	        </div>
+	        <ul class="nav navbar-nav">
+	            <li><a ui-sref="dashboard">Dashboard</a></li>
+	            <li><a ui-sref="account">Account</a></li>
+	            <li><a ui-sref="transaction">Transaction</a></li>
+	             <li><a ui-sref="details">Transaction Details</a></li>
+	        </ul>
+	    </div>
+	</nav>
+    <div ui-view></div>
     
     <div class="dashboard panel panel-default" ng-controller="accountController as accountCtrl">
 	    <div class="panel-heading">Accounts page</div>
@@ -72,6 +79,12 @@
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/ui-router.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/app-state-manager.js"></script>
+    <script src="app/feature/account/account-controller.js"></script>
+    <script src="app/feature/dashboard/dashboard-controller.js"></script>
+    <script src="app/feature/transaction/transaction-controller.js"></script>
+    <script src="app/feature/transaction-detail/detail-controller.js"></script>
     <script src="app/app.js"></script>
     <script src="app/controllers/account-controller.js"></script>
     </div>
