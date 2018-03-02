@@ -4,6 +4,7 @@
 
     var AccountController =  function(accountService, $log) {
         
+        $log.log("AccountController controller created");
     	var vm = this;
         
         vm.isHidden = false;

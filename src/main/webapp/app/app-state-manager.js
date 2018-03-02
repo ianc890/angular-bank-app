@@ -11,6 +11,9 @@
         }).state("account", {
                 url: "/account",
                 templateUrl: "app/feature/account/account.html"
+        }).state("saveaccount", {
+                url: "/save-account",
+                templateUrl: "app/feature/account/createAccount.html"
         })
     });
 }());
