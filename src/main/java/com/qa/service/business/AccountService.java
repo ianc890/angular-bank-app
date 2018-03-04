@@ -8,6 +8,4 @@ public interface AccountService {
 
 	String deleteAccount(Long id);
 
-	String updateAccount(String account);
-
 }

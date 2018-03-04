@@ -23,12 +23,6 @@ public class AccountServiceImpl implements AccountService {
 		LOGGER.info("In AccountServiceImpl addAccount ");
 		return repo.createAccount(account);
 	}
-	
-	@Override
-	public String updateAccount(String account) {
-		LOGGER.info("In AccountServiceImpl updateAccount ");
-		return repo.updateAccount(account);
-	}
 
 	@Override
 	public String deleteAccount(Long id) {
