@@ -18,18 +18,74 @@
           			<li><a href="#" ui-sref="saveaccount">Add Account</a></li>
         		</ul>
         		</li>
+	            <li><a ui-sref="account">Account</a></li>
+	            <li><a ui-sref="transaction">Transaction</a></li>
+	             <li><a ui-sref="details">Transaction Details</a></li>
 	        </ul>
 	    </div>
 	</nav>
 	
     <div ui-view></div>
     
+    <div class="dashboard panel panel-default" ng-controller="accountController as accountCtrl">
+	    <div class="panel-heading">Accounts page</div>
+	    <div class="panel-body">
+   		{{accountCtrl.test}}
+   		<div ng-hide="accountCtrl.isHidden">
+        	<h3><span>Accounts table</span></h3>
+        	<table class="table">
+        		<tr>
+        			<th ng-click="accountCtrl.sortColumn('firstName')" ng-style="colorStyle">{{'first_name' | uppercase}}</th>
+        			<th ng-click="accountCtrl.sortColumn('secondName')" ng-style="colorStyle2">{{'surname' | uppercase}}</th>
+        			<th ng-style="colorStyle3">{{'account_number' | uppercase}}</th>
+        		</tr>
+        		<tr ng-repeat="account in accountCtrl.accounts | orderBy:accountCtrl.sort">
+        			<td ng-style="colorStyle">{{account.firstName}}</td>
+        			<td ng-style="colorStyle2">{{account.secondName}}</td>
+        			<td ng-style="colorStyle3">{{account.accountNumber}}</td>
+        		</tr>
+        	</table>
+        </div>
+        <button class="btn"ng-click="accountCtrl.hideTable()">Hide accounts</button>
+        <br/>
+    	<button ng-click="colorStyle={'background-color':'blue'}">Change color of first name column</button>
+    	<br/>
+    	<button ng-click="colorStyle2={'background-color':'red'}">Change color of second name column</button>
+    	<br/>
+    	<button ng-click="colorStyle3={'background-color':'yellow'}">Change color of account number column</button>
+	</div>
+    
+    <!--<div class = "container" ng-hide="isHidden" ng-init ="accounts=[{'firstName': 'John', 'secondName': 'Doe','accountNumber': '1234'},{'firstName': 'Jane','secondName': 'Doe','accountNumber': '1235'},{'firstName': 'John','secondName': 'Taylor','accountNumber': '1236'},{'firstName': 'Jane','secondName': 'Taylor','accountNumber': '1238'},{'firstName': 'John','secondName': 'Murphy','accountNumber': '1239'},{'firstName': 'Jane','secondName': 'Murphy','accountNumber': '12310'},{'firstName': 'John','secondName': 'Tyrell','accountNumber': '12311'},{'firstName': 'Jane','secondName': 'Tyrell','accountNumber': '12312'}]">
+    	<h3><span>Account Table</span></h3>
+    	<table class = "table table-striped">
+    		<tr ng-style="myStyle">
+    			<th ng-click="sortBy('first')">first
+    			<span class="sortorder" ng-show="propertyName === 'first'"</th>
+    			<th ng-click="sortBy('second')">second
+    			<span class="sortorder" ng-show="propertyName === 'second'"</th>
+    			<th>number</th>
+    		</tr>
+    		<tr ng-repeat="account in accounts">
+    			<td>{{account.firstName |  lowercase}}</td>
+    			<td>{{account.secondName | uppercase}}</td>
+    			<td>{{account.accountNumber}}</td>
+    		</tr>
+    	</table>
+    </div>
+    
+    <div class = "container">
+    	</br>
+    	Hide table: <input type="checkbox" ng-model="isHidden"/>
+    	<br/>
+    	<button ng-click="myStyle={'background-color':'blue'}">Change color</button>
+    </div>-->
+    
+      
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
     <script src="scripts/ui-router.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    
     <script src="app/app.js"></script>
     <script src="app/app-state-manager.js"></script>
     
@@ -43,6 +99,10 @@
     <script src="app/feature/dashboard/dashboard-controller.js"></script>
     <script src="app/feature/account/createAccount-controller.js"></script>
     <script src="app/feature/account/updateAccount-controller.js"></script>
+    <script src="app/feature/transaction/transaction-controller.js"></script>
+    <script src="app/feature/transaction-detail/detail-controller.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/account-controller.js"></script>
     </div>
 </body>
 </html>

@@ -24,5 +24,14 @@
                 },
                 templateUrl: "app/feature/account/updateAccount.html"
         })
+      
+        }).state("transaction", {
+                url: "/transaction",
+                templateUrl: "app/feature/transaction/transaction.html"
+        }).state('details', {
+    			url : '/transaction-detail',
+    			params : {transactionId: null},
+    			templateUrl : "app/feature/transaction-detail/detail.html"
+ 		})
     });
 }());
