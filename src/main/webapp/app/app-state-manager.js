@@ -23,8 +23,6 @@
                 	accountNumber: null
                 },
                 templateUrl: "app/feature/account/updateAccount.html"
-        })
-      
         }).state("transaction", {
                 url: "/transaction",
                 templateUrl: "app/feature/transaction/transaction.html"
